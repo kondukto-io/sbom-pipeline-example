@@ -24,10 +24,10 @@ jobs:
         cache: maven
     - uses: actions/checkout@v2
     - name: Setup KDT
-      run:
-        curl -sSL https://cli.kondukto.io | sh \
-        echo "KONDUKTO_HOST=${{ secrets.KONDUKTO_HOST }}" >> $GITHUB_ENV \
-        echo "KONDUKTO_TOKEN=${{ secrets.KONDUKTO_HOST }}" >> $GITHUB_ENV
+      run: |
+        curl -sSL https://cli.kondukto.io \
+        sh echo "KONDUKTO_HOST=${{ secrets.KONDUKTO_HOST }}" >> $GITHUB_ENV \
+        sh echo "KONDUKTO_TOKEN=${{ secrets.KONDUKTO_HOST }}" >> $GITHUB_ENV
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Run Dependency Check Maven plugin
