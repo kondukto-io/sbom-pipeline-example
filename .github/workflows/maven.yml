@@ -34,8 +34,4 @@ jobs:
     - name: Run Maven(SBOM & SCA) plugins
       run: mvn verify
     - name: Import the findings to Kondukto
-      run: |
-            kdt sbom import
-            -p ${{ github.event.repository.name }}
-            -f /home/runner/work/sbom-pipeline-example/sbom-pipeline-example/target/bom.json
-            -b ${{ github.ref }} 
+      run: kdt sbom import -p ${{ github.event.repository.name }} -f /home/runner/work/sbom-pipeline-example/sbom-pipeline-example/target/bom.json -b ${{ github.ref }} 
