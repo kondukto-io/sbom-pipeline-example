@@ -25,7 +25,11 @@ jobs:
         cache: maven
     - uses: actions/checkout@v2
     - name: Setup KDT
-      run: curl -sSL https://cli.kondukto.io && echo "KONDUKTO_HOST=${{ secrets.KONDUKTO_HOST }}" >> $GITHUB_ENV && echo "KONDUKTO_TOKEN=${{ secrets.KONDUKTO_HOST }}" >> $GITHUB_ENV
+      run: |
+          curl -sSL https://cli.kondukto.io \
+          sudo sh \
+          echo "KONDUKTO_HOST=${{ secrets.KONDUKTO_HOST }}" >> $GITHUB_ENV \
+          echo "KONDUKTO_TOKEN=${{ secrets.KONDUKTO_HOST }}" >> $GITHUB_ENV
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Run Maven(SBOM & SCA) plugins
@@ -34,6 +38,5 @@ jobs:
       run: |
             kdt sbom import \
             -p ${{ github.event.repository.name }} \
-            -t dependencycheck \
-            -f dependency-check-results.json \
+            -f /home/runner/work/sbom-pipeline-example/sbom-pipeline-example/target/bom.json \
             -b ${{ github.ref }} 
