@@ -35,7 +35,7 @@ jobs:
       run: mvn verify
     - name: Import the findings to Kondukto
       run: |
-            kdt sbom import \
-            -p ${{ github.event.repository.name }} \
-            -f /home/runner/work/sbom-pipeline-example/sbom-pipeline-example/target/bom.json \
+            kdt sbom import
+            -p ${{ github.event.repository.name }}
+            -f /home/runner/work/sbom-pipeline-example/sbom-pipeline-example/target/bom.json
             -b ${{ github.ref }} 
