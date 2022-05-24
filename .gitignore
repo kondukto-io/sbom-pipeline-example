@@ -1,6 +1,6 @@
 #Package Files #
-.jar
-.war
-.zip
-.tar.gz
-.rar
+*.jar
+*.war
+*.zip
+*.tar.gz
+*.rar
