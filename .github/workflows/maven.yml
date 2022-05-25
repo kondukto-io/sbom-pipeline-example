@@ -32,9 +32,12 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Run Maven(SBOM & SCA) plugins
-      run: mvn verify
+      run: |
+          mvn verify
+          ls -al
     - name: Import the findings to Kondukto
       run: |
+          ls -al
           kdt sbom import 
           -f /home/runner/work/sbom-pipeline-example/sbom-pipeline-example/target/bom.json 
           -p ${{ github.event.repository.name }} 
