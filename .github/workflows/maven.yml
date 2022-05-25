@@ -34,7 +34,7 @@ jobs:
     - name: Run Maven(SBOM & SCA) plugins
       run: |
           mvn verify
-    - name:
+    - name: KDT SCAN
       run: |
           kdt scan -p ${{ github.event.repository.name }} -b ${{ github.ref }} -t semgrep
     - name: Import the findings to Kondukto
