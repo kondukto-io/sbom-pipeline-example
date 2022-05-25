@@ -29,10 +29,8 @@ jobs:
           curl -sSL https://cli.kondukto.io | sudo sh
           echo "KONDUKTO_HOST=${{ secrets.KONDUKTO_HOST }}" >> $GITHUB_ENV
           echo "KONDUKTO_TOKEN=${{ secrets.KONDUKTO_TOKEN }}" >> $GITHUB_ENV
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-    - name: Run Maven(SBOM & SCA) plugins
-      run: mvn verify
+    - name: Build with Maven and run (SBOM & SCA) plugins
+      run: mvn -B -DskipTests clean verify --file pom.xml
     - name: Import the findings to Kondukto
       run: |
           kdt sbom import
