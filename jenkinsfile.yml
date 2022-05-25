@@ -1,0 +1,32 @@
+pipeline {
+  agent {
+    docker {
+      image 'maven:3-alpine'
+      args '-v /root/.m2:/root/.m2'
+    }
+  }
+  stages {
+    stage("SCM Checkout") {
+      steps {
+         // clone the repository
+         git 'https://github.com/CSPF-Founder/JavaVulnerableLab.git'
+      }
+    }
+         stage("Build and Initiate SCA & SBOM Scans") {
+            steps {
+               // Build the application and run Dependency-Check-Maven & CodeDX SBOM plugins
+            sh "mvn -B -DskipTests clean verify"
+               // Import the findings to Kondukto
+            sh "/usr/local/bin/kdt --config=/etc/kondukto.yaml sbom import -p JavaVulnerableLab -f target/bom.json -b main"
+            }
+         }
+       } // end of Parallel
+    } // end of Scan Stage
+    stage("Publish") {
+      steps {
+         // publish the app to the prod
+         sh "echo 'Publish'"
+      }
+    }
+  } // end of stages
+}
