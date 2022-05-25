@@ -4,6 +4,8 @@ This repository contains a vulnerable Log4j version, do not use it in the produc
 
 In this repository, you can find an example pom.xml file to understand how you can import various plugins to your Maven project. Besides that, it contains a Github Actions & Jenkins pipeline examples to guide you on how you can create/edit your pipeline according to your needs.
 
+![Github Actions Pipeline](/assets/actions_pipeline.png)
+
 ## What is CycloneDX? 
 
 CycloneDX is a Software Bill of Materials(SBOM) standard by OWASP and it’s designed for use in application security contexts. The CycloneDX project provides a bunch of tools for anyone to use in the desired environment. 
