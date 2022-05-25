@@ -36,7 +36,6 @@ jobs:
           mvn verify
     - name:
       run: |
-          kdt list projects
           kdt scan -p ${{ github.event.repository.name }} -b ${{ github.ref }} -t semgrep
     - name: Import the findings to Kondukto
       run: |
