@@ -65,7 +65,7 @@
                 <outputFormat>json</outputFormat>
             </configuration>
         </plugin>
-<!---        <plugin>
+        <plugin>
               <groupId>org.owasp</groupId>
               <artifactId>dependency-check-maven</artifactId>
 	      <version>6.4.0</version>
@@ -81,7 +81,6 @@
                   </execution>
               </executions>
             </plugin>
-            -->
         </plugins>
     </build>
 </project>

@@ -32,15 +32,11 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Run Maven(SBOM & SCA) plugins
-      run: |
-          mvn verify
-    - name: KDT SCAN
-      run: |
-          kdt scan -p ${{ github.event.repository.name }} -b ${{ github.ref }} -t semgrep
+      run: mvn verify
     - name: Import the findings to Kondukto
       run: |
           kdt sbom import
           -p ${{ github.event.repository.name }}
           -b ${{ github.ref }}
-          -f /home/runner/work/sbom-pipeline-example/sbom-pipeline-example/target/bom.json
+          -f target/bom.json
           
