@@ -1,5 +1,9 @@
 # Initiating SBOM Creation & SCA Scan On Pipeline
 
+*In our previous blog post, we have covered what SBOM is, its advantages, how to create it, and how to detect a vulnerability with SBOM. You may find the SBOM 101 blog at [this link](https://kondukto.io/blog/sbom-software-bill-of-materials).*
+
+*If you wish to see the blog post of this repository please click to [this link]().*
+
 This repository contains a vulnerable Log4j version, do not use it in the production environment.
 
 In this repository, you can find an example pom.xml file to understand how you can import various plugins to your Maven project. Besides that, it contains a Github Actions & Jenkins pipeline examples to guide you on how you can create/edit your pipeline according to your needs.
