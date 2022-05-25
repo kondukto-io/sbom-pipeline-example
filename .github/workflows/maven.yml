@@ -38,4 +38,4 @@ jobs:
           kdt sbom import 
           -f /home/runner/work/sbom-pipeline-example/sbom-pipeline-example/target/bom.json 
           -p ${{ github.event.repository.name }} 
-          -b ${{ github.ref }}
+          -b ${{ github.ref }} -v
