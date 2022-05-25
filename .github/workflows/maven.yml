@@ -39,6 +39,6 @@ jobs:
       run: |
           ls -al
           kdt sbom import 
-          -f /home/runner/work/sbom-pipeline-example/sbom-pipeline-example/target/bom.json 
+          -f target/bom.json 
           -p ${{ github.event.repository.name }} 
-          -b ${{ github.ref }} -v
+          -b ${{ github.ref }} --verbose
