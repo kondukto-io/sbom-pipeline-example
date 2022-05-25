@@ -35,10 +35,11 @@ jobs:
       run: |
           mvn verify
           ls -al
+          cp /home/runner/work/sbom-pipeline-example/sbom-pipeline-example/target/bom.json /home/runner/work/sbom-pipeline-example/sbom-pipeline-example/bom.json
     - name: Import the findings to Kondukto
       run: |
           ls -al
           kdt sbom import 
-          -f target/bom.json 
+          -f bom.json 
           -p ${{ github.event.repository.name }} 
           -b ${{ github.ref }} --verbose
