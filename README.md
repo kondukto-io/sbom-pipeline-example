@@ -2,7 +2,7 @@
 
 *In our previous blog post, we have covered what SBOM is, its advantages, how to create it, and how to detect a vulnerability with SBOM. You may find the SBOM 101 blog at [this link](https://kondukto.io/blog/sbom-software-bill-of-materials).*
 
-*If you wish to see the blog post of this repository please click to [this link]().*
+*If you wish to see the blog post of this repository please click to [this link](https://kondukto.io/blog/how-to-generate-and-audit-sbom-in-a-ci-cd-pipeline).*
 
 This repository contains a vulnerable Log4j version, do not use it in the production environment.
 
